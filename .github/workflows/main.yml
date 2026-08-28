@@ -31,6 +31,11 @@ jobs:
           sudo rm -rf /usr/share/dotnet
           sudo rm -rf /opt/ghc
           sudo apt clean
+          
+      - name: ksu
+        run: | 
+         rm -rf KernelSU-Next
+         curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s legacy
 
       - name: Make build script executable
         run: chmod +x build.sh
