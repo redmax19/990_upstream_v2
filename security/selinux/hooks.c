@@ -121,7 +121,7 @@ static int __init enforcing_setup(char *str)
 }
 __setup("enforcing=", enforcing_setup);
 #else
-#define selinux_enforcing_boot 1
+#define selinux_enforcing_boot 0
 #endif
 
 int selinux_enabled_boot __initdata = 1;
