@@ -52,20 +52,20 @@ pushd $(dirname "$0") > /dev/null
 CORES=`cat /proc/cpuinfo | grep -c processor`
 
 # Define toolchain variables
-CLANG_DIR=$PWD/toolchain/clang_14
+CLANG_DIR=$PWD/toolchain/clang_15
 PATH=$CLANG_DIR/bin:$PATH
 
 # Check if toolchain exists
-if [ ! -f "$CLANG_DIR/bin/clang-14" ]; then
+if [ ! -f "$CLANG_DIR/bin/clang-15" ]; then
     echo "-----------------------------------------------"
     echo "Toolchain not found! Downloading..."
     echo "-----------------------------------------------"
     rm -rf $CLANG_DIR
     mkdir -p $CLANG_DIR
     pushd $CLANG_DIR > /dev/null
-    curl -LJOk https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/android-13.0.0_r13/clang-r450784d.tar.gz
-    tar xf android-13.0.0_r13-clang-r450784d.tar.gz
-    rm android-13.0.0_r13-clang-r450784d.tar.gz
+    wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/7d21a2e4192728bc50841994d88637ccc45b5692/clang-r458507.tar.gz
+    tar xf clang-r458507.tar.gz
+    rm clang-r458507.tar.gz
     echo "Cleaning up..."
     popd > /dev/null
 fi
